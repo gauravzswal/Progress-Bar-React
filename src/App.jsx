@@ -15,7 +15,7 @@ function App() {
     }, 100);
   }, []);
 
-  function handleClick(){
+  function handleClick() {
     setProgress(0);
   }
 
@@ -23,13 +23,20 @@ function App() {
     <>
       <div className="flex w-screen h-screen flex-col items-center justify-center gap-4">
         <h1 className="text-2xl font-bold">Progress Bar</h1>
-        <div className="w-[50vw] h-[5vh] border-2 rounded-3xl overflow-hidden" onClick={handleClick}>
+        <div className="w-[50vw] h-[5vh] border-2 rounded-3xl overflow-hidden">
           <div
             className="h-full bg-blue-500 transition-all duration-200"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
         <div>{progress < 100 ? `Loading... ${progress}%` : "Complete!"}</div>
+
+        <button
+          className="bg-black text-white px-4 py-1 rounded-xl text-2xl"
+          onClick={handleClick}
+        >
+          Reset
+        </button>
       </div>
     </>
   );

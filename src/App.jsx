@@ -8,12 +8,16 @@ function App() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
+          return prev; 
         } else {
           return prev + 1;
         }
       });
     }, 100);
-  }, []);
+
+    // Cleanup function to clear timer when component unmounts
+    return () => clearInterval(timer);
+  }, [progress]);
 
   function handleClick() {
     setProgress(0);
